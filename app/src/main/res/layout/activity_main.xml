@@ -1,23 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/main_bluetooth_btn"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_tb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bluetooth Mode"/>
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <Button
-        android:id="@+id/main_wifi_btn"
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/main_bluetooth_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#2B2B52"
+            android:layout_margin="20dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="100dp">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:text="Bluetooth Mode"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/main_wifi_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1287A5"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="100dp">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:text="Wifi Mode"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhite"/>
+
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Wifi Mode"/>
+        android:text="Developed by Gauri Shankar"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
 
-</LinearLayout>
+</RelativeLayout>

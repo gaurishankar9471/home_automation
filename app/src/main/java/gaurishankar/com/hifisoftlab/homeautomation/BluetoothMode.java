@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -50,9 +52,12 @@ public class BluetoothMode extends AppCompatActivity {
 
     private Button mBTConnect;
 
-    private ProgressDialog mProgress;
+//    private ProgressDialog mProgress;
 
     private String command;
+    private Toolbar mToolbar;
+
+    private TextView mBTAdd, mBTName;
 
 
     @Override
@@ -60,7 +65,16 @@ public class BluetoothMode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluetooth_mode);
 
-        mProgress = new ProgressDialog(this);
+        mToolbar = findViewById(R.id.bt_tb);
+        mToolbar.setTitle("Bluetooth Mode");
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mBTAdd = findViewById(R.id.bluetoot_add_txt);
+        mBTName = findViewById(R.id.bluetooth_name_txt);
+
+
+//        mProgress = new ProgressDialog(this);
 
         mBTConnect = findViewById(R.id.bt_connect);
 
@@ -77,6 +91,7 @@ public class BluetoothMode extends AppCompatActivity {
                         socket.close();
                         Toast.makeText(getApplicationContext(), "Disconnected", Toast.LENGTH_LONG).show();
                         mBTConnect.setText("Connect");
+
 //                mConnectionStatusTxt.setText("Not Connected");
 //                mBTName.setText("Name");
 //                mBTAddress.setText("Address");
@@ -314,6 +329,8 @@ public class BluetoothMode extends AppCompatActivity {
             try {
                 outputStream = socket.getOutputStream();
                 Toast.makeText(getApplicationContext(), "Socket Connected", Toast.LENGTH_LONG).show();
+                mBTAdd.setText(device.getAddress());
+                mBTName.setText(device.getName());
                 //        connected = true;
 //                mConnectionStatusTxt.setText("Connected");
 //                mBTAddress.setText(add);
@@ -443,14 +460,12 @@ public class BluetoothMode extends AppCompatActivity {
 
     public void BTconnect(String add, String name, CheckBox checkBox) {
 
-
-        mProgress.setMessage("Connecting...");
-        mProgress.show();
         try {
 
             socket = device.createRfcommSocketToServiceRecord(PORT_UUID); //Creates a socket to handle the outgoing connection
             socket.connect();
             connected = true;
+
 
 
         } catch (IOException e) {
@@ -465,6 +480,9 @@ public class BluetoothMode extends AppCompatActivity {
                     PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("BTADD", device.getAddress()).apply();
 
                 }
+
+                mBTAdd.setText(device.getAddress());
+                mBTName.setText(device.getName());
                 Toast.makeText(getApplicationContext(), "Socket Connected", Toast.LENGTH_LONG).show();
                 //        connected = true;
 //                mConnectionStatusTxt.setText("Connected");
@@ -479,10 +497,17 @@ public class BluetoothMode extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Disconnected", Toast.LENGTH_LONG).show();
 
               mBTConnect.setText("Connect");
+            mBTAdd.setText("------");
+            mBTName.setText("------");
 
         }
 
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
 }
