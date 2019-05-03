@@ -73,6 +73,7 @@ public class WifiMode extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         // this is for thread policy the AOS doesn't allow to transfer data using wifi module so we take the permission
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -93,7 +94,7 @@ public class WifiMode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ip_add = mIPAdd.getText().toString().trim();
-                mIPTxt.setText("192.168.43.223");
+                mIPTxt.setText(ip_add);
                 mIPSbmBtn.setText("Connected");
                 Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_LONG).show();
             }
@@ -120,7 +121,7 @@ public class WifiMode extends AppCompatActivity {
                         try {
 
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay1On")
+                                    .url("http://"+ip_add+"/Relay1On")
                                     .build();
 
                             status1=true;
@@ -138,7 +139,7 @@ public class WifiMode extends AppCompatActivity {
                     else {
                         try {
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay1Off")
+                                    .url("http://"+ip_add+"/Relay1Off")
                                     .build();
 
                             status1=false;
@@ -174,7 +175,7 @@ public class WifiMode extends AppCompatActivity {
                         try {
 
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay2On")
+                                    .url("http://"+ip_add+"/Relay2On")
                                     .build();
 
                             status2=true;
@@ -192,7 +193,7 @@ public class WifiMode extends AppCompatActivity {
                     else {
                         try {
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay2Off")
+                                    .url("http://"+ip_add+"/Relay2Off")
                                     .build();
 
                             status2=false;
@@ -226,7 +227,7 @@ public class WifiMode extends AppCompatActivity {
                         try {
 
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay3On")
+                                    .url("http://"+ip_add+"/Relay3On")
                                     .build();
 
                             status3=true;
@@ -244,7 +245,7 @@ public class WifiMode extends AppCompatActivity {
                     else {
                         try {
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay3Off")
+                                    .url("http://"+ip_add+"/Relay3Off")
                                     .build();
 
                             status3=false;
@@ -277,7 +278,7 @@ public class WifiMode extends AppCompatActivity {
                         try {
 
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay4On")
+                                    .url("http://"+ip_add+"/Relay4On")
                                     .build();
 
                             status4=true;
@@ -290,12 +291,11 @@ public class WifiMode extends AppCompatActivity {
                         catch (Exception e){
                             Toast.makeText(getApplicationContext(),"Please connect to Wifi First!",Toast.LENGTH_LONG).show();
                         }
-
                     }
                     else {
                         try {
                             Request request = new Request.Builder()
-                                    .url("http://192.168.43.223/Relay4Off")
+                                    .url("http://"+ip_add+"/Relay4Off")
                                     .build();
 
                             status4=false;
@@ -303,9 +303,6 @@ public class WifiMode extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Relay 4 is Off Now!",Toast.LENGTH_LONG).show();
                             ImageView img = findViewById(R.id.b_img4);
                             img.setImageResource(R.drawable.ic_lightbulb_outline_black_24dp);
-
-
-
                         }
                         catch (Exception e){
                             Toast.makeText(getApplicationContext(),"Please connect to Wifi First!",Toast.LENGTH_LONG).show();

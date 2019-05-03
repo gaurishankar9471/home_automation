@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/about_tb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="About Us"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="About App"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="This is an excellent app to make your living easy, simple and smart. This app not only saves your time but also energy and effort. Home Automation facilitates you with the best features which are listed down accordingly."
+            android:padding="10dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Features of Home Automation :-"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="1. It controls home appliance using Bluetooth and Wifi.
+\n2. It is Arduino and Bluetooth based , Node MCU(Wifi Module) System.
+\n3. It works on both automate manual switch(SPDT) and Electronic based switch(SPDT Relay).
+\n4. It automatically connects to wifi and bluetooth under range
+\n5. It facilitate with fast connection and responses time fast.
+\n6. Saves previous connected device address to save time and effort.
+\n7. It has Interactive User Interface.
+"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="How to use Home Automation:-"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Steps for Bluetooth Mode :"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="* First open Home Automation app
+\n* Now pair to any bluetooth device
+\n* Click on Bluetooth Button
+\n* Click on Connect Button
+\n* Select Bluetooth from dialog list
+\n* Now send the data to bluetooth module
+"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:textAlignment="textStart"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Steps for Wifi Mode :"
+            android:textStyle="bold"
+            android:padding="10dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="* First enable your hotspot
+Click on Wifi Mode
+\n* Enter IP Address of Nodemcu and click on Connect   Button
+\n* Now send data to Node MCU(Wifi Module)
+"
+            android:textSize="15sp"
+            android:textAlignment="textStart"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Contributors"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Gauri Shankar Gupta\n Soumyashree Goswami "
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
